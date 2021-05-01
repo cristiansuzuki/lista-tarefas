@@ -10,6 +10,7 @@ from django.views.decorators.http import require_POST
 
 
 def index(request):
+    lista = Lista.objects.all()
     if request.method == 'POST':
         form = ListaForm(request.POST)
         if form.is_valid():
@@ -17,4 +18,4 @@ def index(request):
             return redirect('index')
     else:
         form = ListaForm()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'index.html', {'form': form, 'listas': lista})

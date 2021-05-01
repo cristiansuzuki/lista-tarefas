@@ -1,41 +1,38 @@
-{% extends 'base.html' %}
-{% block title %} Index {% endblock %}
+{% extends 'base.html' %} 
+{% block title %} Index {% endblock %} 
 {% block container %}
 
 <a href="#" onclick="Modal.open()" class="button new">+ Nova Tarefa</a>
 
+{% for lista in listas %}
+{{ lista.titulo }}
+{{ lista.conteudo }}
+{{ lista.data_termino }}
+{{ lista.categoria }}
+{% endfor %}
+
 <div class="modal-overlay">
   <div class="modal">
     <div id="form">
-
       <h2>Formulario</h2>
 
-      <form method="POST">{% csrf_token %}
-        
-        <div class="input-group">
-          {{ form.titulo }}
-        </div>
+      <form method="POST">
+        {% csrf_token %}
 
-        <div class="input-group">
-          {{ form.conteudo }}
-        </div>
-        
-        <div class="input-group">
-          {{ form.data_termino }}
-        </div>
+        <div class="input-group">{{ form.titulo }}</div>
 
-        <div class="input-group">
-          {{ form.categoria }}
-        </div>
+        <div class="input-group">{{ form.conteudo }}</div>
+
+        <div class="input-group">{{ form.data_termino }}</div>
+
+        <div class="input-group">{{ form.categoria }}</div>
 
         <div class="input-group actions">
           <a onclick="Modal.close()" href="" class="button cancel">Cancelar</a>
           <button type="submit">Salvar</button>
         </div>
-
       </form>
     </div>
   </div>
 </div>
-
 {% endblock %}
