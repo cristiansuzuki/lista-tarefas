@@ -1,6 +1,51 @@
-<h1>Formulario</h1>
+{% extends 'base.html' %}
+{% block title %} Index {% endblock %}
+{% block container %}
 
-<form method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit">SALVAR</button>
-</form>
+<a href="#" onclick="Modal.open()" class="button new">+ Nova Tarefa</a>
+
+<div class="modal-overlay">
+  <div class="modal">
+    <div id="form">
+
+      <h2>Formulario</h2>
+
+      <form method="post">{% csrf_token %}
+        
+        <div class="input-group">
+          <label class="sr-only" for="titulo">Titulo</label>
+          <input type="text" id="{{ form.title }}" name="titulo" placeholder="Titulo"/>
+        </div>
+
+        <div class="input-group">
+            <label class="sr-only" for="conteudo">Conteudo</label>
+            <input type="text" name="conteudo" placeholder="Conteudo" id="{{ form.conteudo }}"/>
+        </div>
+
+        <div class="input-group">
+            <label class="sr-only" for="date">Data criação</label>
+            <input type="date" id="{{ form.data_criacao }}" name="date-criacao"/>
+        </div>
+
+        <div class="input-group">
+          <label class="sr-only" for="date">Data termino</label>
+          <input type="date" name="date-termino" id="{{ form.data_termino }}"/>
+        </div>
+
+        <div class="input-group">
+          <label class="sr-only" for="categoria">Categoria</label>
+          <select name="categoria" id="{{ form.categoria }}">
+          </select>
+        </div>
+
+        <div class="input-group actions">
+          <a onclick="Modal.close()" href="" class="button cancel">Cancelar</a>
+          <button>Salvar</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

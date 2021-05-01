@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>{% block title %} Base {% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<body>
+
+    {% block container %}
+    {% endblock %}
+
+    <script>
+        const Modal = {
+            open() {
+                document.querySelector('.modal-overlay').classList.add('active')
+            },
+            close() {
+                document.querySelector('.modal-overlay').classList.remove('active')
+            }
+        }
+    </script>
+    
+</body>
+</html>
