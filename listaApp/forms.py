@@ -17,19 +17,14 @@ class CategoriaForm(forms.ModelForm):
 class ListaForm(forms.ModelForm):
     class Meta:
         model = Lista
-        fields = ('titulo', 'conteudo',
-                  'data_termino', 'categoria')
+        fields = ('titulo', 'conteudo', 'data_termino', 'categoria')
         widgets = {
             'titulo': forms.TextInput(
-                attrs={'type': 'text', 'class': 'form-control form-control-user', 'id': 'exampleInputName',
-                       'placeholder': 'Digite o título'}),
+                attrs={'type': 'text', 'nome': 'titulo', 'placeholder': 'Titulo'}),
             'conteudo': forms.TextInput(
-                attrs={'type': 'text', 'class': 'form-control form-control-user', 'id': 'exampleInputName',
-                       'placeholder': 'Digite o conteúdo'}),
-            'data_termino': forms.DateInput(
-                attrs={'type': 'date', 'class': 'form-control form-control-user', 'id': 'exampleInputDate',
-                       'placeholder': ''}),
+                attrs={'type': 'text', 'nome': 'conteudo', 'placeholder': 'Conteudo'}),
+            'data_termino': forms.TextInput(
+                attrs={'type': 'date', 'nome': 'date'}),
             'categoria': forms.Select(
-                attrs={'type': 'select', 'class': 'form-control form-control-user', 'id': 'exampleInputSelect',
-                       'placeholder': ''}),
+                attrs={'nome': 'categoria'}),
         }
