@@ -33,6 +33,14 @@ body {
     border-width: 0;
 }
 
+/* ++++++++ Titulo form ++++++++ */
+h2 {
+    margin-top: 3.2rem;
+    margin-bottom: 0.8rem;
+    color: var(--dark-blue);
+    font-weight: normal;
+}
+
 /* ++++++++ Links & Buttons ++++++++ */
 a {
     color: var(--green);
@@ -113,7 +121,7 @@ button:hover {
     margin-top: 0;
 }
 
-input {
+input, select {
     border: none;
     border-radius: 0.2rem;
     padding: 0.8rem;
