@@ -20,7 +20,7 @@ class Lista(models.Model):
     data_criacao = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
     data_termino = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.titulo

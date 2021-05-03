@@ -6,23 +6,35 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.views.decorators.http import require_POST
 
-# Pagina principal
+# Login do sistema
+def login(request):
+    return render(request, 'registration/login.html')   
+
+# Página principal
 @login_required
 def index(request):
-    lista = Lista.objects.filter(usuario=request.user)
-    qtd_lista = len(lista)
-    lista = reversed(lista)
     if request.method == 'POST':
         form = ListaForm(request.POST)
         if form.is_valid():
-            lista.usuario = request.user
-            form.save()
+            newform = form.save(commit=False)
+            newform.usuario = request.user
+            newform.save()
             return redirect('index')
     else:
         form = ListaForm()
+    lista = Lista.objects.filter(usuario=request.user)
+    qtd_lista = len(lista)
+    lista = reversed(lista)
     return render(request, 'index.html', {'form': form, 'listas': lista, 'qtd_lista': qtd_lista })
 
-# A fazer
+# Excluir item da lista
+@login_required
+def excluir_item(request, id):
+    item = Lista.objects.get(pk=id)
+    item.delete()
+    return redirect('index')
+
+# Cadastrar categoria //A fazer
 @login_required
 def cadastro_categoria(request):
     if request.method == 'POST':
@@ -33,13 +45,6 @@ def cadastro_categoria(request):
     else:
         form = CategoriaForm()
         return redirect('index')
-
-# Excluir item da lista
-@login_required
-def excluir_item(request, id):
-    item = Lista.objects.get(pk=id)
-    item.delete()
-    return redirect('index')
 
 # Cadastrar usuario //A fazer
 @login_required
@@ -59,8 +64,4 @@ def registro_usuario(request):
         senha = request.POST['senha']
         novoUsuario = User.objects.create_user(username=nome_usuario, email=email, password=senha)
         novoUsuario.save()
-        return redirect('user')    
-
-# fazer login
-def login(request):
-    return render(request, 'registration/login.html')   
+        return redirect('user')
