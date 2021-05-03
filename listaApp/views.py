@@ -47,12 +47,11 @@ def cadastro_categoria(request):
         return redirect('index')
 
 # Cadastrar usuario //A fazer
-@login_required
+
 def user(request):
     return render(request, 'registro-usuario.html')
 
 @require_POST
-@login_required
 def registro_usuario(request):
     try:
         usuario_aux = User.objects.get(email=request.POST['email'])
