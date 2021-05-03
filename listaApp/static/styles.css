@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    background: #f0f2f5;
+    background: #181818;
     font-family: 'Poppins', 'sans-serif';
 }
 
@@ -99,7 +99,7 @@ button:hover {
 
 /* ++++++++ Header ++++++++ */
 header{
-    background: #2d4a22;
+    background: #121212;
     padding: 2rem 0 10rem;
     text-align: center;
 }
@@ -171,19 +171,15 @@ table tbody tr td:last-child {
 table thead th {
     background: white;
 
-    font-weight: normal;
+    font-weight: bold;
     padding: 1rem 2rem;
 
     text-align: left;
 }
 
-table tbody tr {
-    opacity: 0.7
-}
 
-table tbody tr:hover {
-    opacity: 1
-}
+
+
 
 table tbody td {
     background: white;
@@ -196,6 +192,7 @@ td.description {
 
 td.verde {
     color: #12a454;
+    font-weight: bold;
 }
 
 td.vermelho {
@@ -268,8 +265,7 @@ input, select {
 footer {
     text-align: center;
     padding: 4rem 0 2rem;
-    color: var(--dark-blue);
-    opacity: 0.6;
+    color: white
 }
 
 /* ++++++++ Responsive ++++++++ */
