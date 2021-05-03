@@ -2,7 +2,6 @@ from django import forms
 from .models import *
 from django.contrib.auth.models import User
 
-
 class CategoriaForm(forms.ModelForm):
     class Meta:
         model = Categoria
@@ -12,7 +11,6 @@ class CategoriaForm(forms.ModelForm):
                 attrs={'type': 'text', 'class': 'form-control form-control-user', 'id': 'exampleInputName',
                        'placeholder': ''})
         }
-
 
 class ListaForm(forms.ModelForm):
     class Meta:

@@ -1,26 +1,86 @@
-<!DOCTYPE >
+{% load static %}
+<!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8" />
+<head>
 
-    <title>Login</title>
+  <meta charset="utf-8" />
 
+  <title>Login</title>
 
+  <link rel="stylesheet" href="{% static 'login.css' %}">
+  <link rel="icon" href="{% static 'assets/favicon.ico' %}" type="image/ico">
 
-  </head>
+</head>
 
-  <body>
-    <form class="box" method="POST"> {% csrf_token %}
+  <form autocomplete='off' class='form' method="POST">{% csrf_token %}
+    <div class='control'>
+      <h1>
+        Sign In
+      </h1>
+    </div>
+    
+    <div class='control block-cube block-input'>
+      
+        <input name='username' placeholder='Username' type='text' id="{{ form.username }}">
+        
+        <div class='bg-top'>
+          <div class='bg-inner'></div>
+        </div>
+        
+        <div class='bg-right'>
+          <div class='bg-inner'></div>
+        </div>
+        
+        <div class='bg'>
+          <div class='bg-inner'></div>
+        </div>
 
-      <h1>Login</h1>
+    </div>
+    
+    <div class='control block-cube block-input'>
+      
+        <input name='password' placeholder='Password' type='password' id="{{ form.password }}">
+        
+        <div class='bg-top'>
+          <div class='bg-inner'></div>
+        </div>
+        
+        <div class='bg-right'>
+          <div class='bg-inner'></div>
+        </div>
+        
+        <div class='bg'>
+          <div class='bg-inner'></div>
+        </div>
+    
+    </div>
+  
+    <button class='btn block-cube block-cube-hover' type='submit'>
+  
+        <div class='bg-top'>
+          <div class='bg-inner'></div>
+        </div>
+        
+        <div class='bg-right'>
+          <div class='bg-inner'></div>
+        </div>
+        
+        <div class='bg'>
+          <div class='bg-inner'></div>
+        </div>
+        
+        <div class='text'>
+          Log In
+        </div>
 
-      <!-- MÁGICA NÃO MEXA -->
+    </button>
 
-      <input type="text" placeholder="Usuário" id="{{ form.username }}
-            <input type="password" placeholder="Senha" id="{{ form.password }}
+    <div class='credits'>
+      <a href='https://codepen.io/marko-zub/' target='_blank'>
+        My other codepens
+      </a>
+    </div>
 
-      <input type="submit" name="" value="Login">
+  </form>
 
-    </form>
-  </body>
 </html>
