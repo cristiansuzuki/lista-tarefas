@@ -28,3 +28,8 @@ class ListaForm(forms.ModelForm):
             'categoria': forms.Select(
                 attrs={'nome': 'categoria'}),
         }
+
+class UserModelForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password')       

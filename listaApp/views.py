@@ -8,6 +8,7 @@ from django.views.decorators.http import require_POST
 
 # Create your views here.
 
+@login_required
 def index(request):
     lista = Lista.objects.all()
     qtd_lista = len(lista)
@@ -21,6 +22,7 @@ def index(request):
         form = ListaForm()
     return render(request, 'index.html', {'form': form, 'listas': lista, 'qtd_lista': qtd_lista })
 
+@login_required
 def cadastro_categoria(request):
     if request.method == 'POST':
         form = CategoriaForm(request.POST)
@@ -31,7 +33,30 @@ def cadastro_categoria(request):
         form = CategoriaForm()
         return redirect('index')
 
+@login_required
 def excluir_item(request, id):
     item = Lista.objects.get(pk=id)
     item.delete()
     return redirect('index')
+
+@login_required
+def user(request):
+    return render(request, 'registro-usuario.html')
+
+@require_POST
+@login_required
+def registro_usuario(request):
+    try:
+        usuario_aux = User.objects.get(email=request.POST['email'])
+        if usuario_aux:
+            return render(request, 'caminho para o index', {'msg': 'Erro! Já existe um usuário com o mesmo e-mail'})
+    except User.DoesNotExist:
+        nome_usuario = request.POST['nome-usuario']
+        email = request.POST['email']
+        senha = request.POST['senha']
+        novoUsuario = User.objects.create_user(username=nome_usuario, email=email, password=senha)
+        novoUsuario.save()
+        return redirect('user')    
+
+def login(request):
+    return render(request, 'registration/login.html')   
