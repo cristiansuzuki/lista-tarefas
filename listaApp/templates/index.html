@@ -14,10 +14,13 @@
 
       <div class="card total">
           <h3>
-              <span>Nome Usuario</span>
+              <span>{{ user.get_username }}</span>
               <img src="{% static 'assets/total.svg' %}" alt="Image de total">
           </h3>
-          <p>Você tem {{ qtd_lista }} tarefas a fazer!</p>
+          <h3>
+            <p>Você tem {{ qtd_lista }} tarefas a fazer!</p>
+            <a href="accounts/logout" id="logout">Logout</a>
+          </h3>
       </div>
 
   </section>

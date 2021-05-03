@@ -52,6 +52,10 @@ h2.lista {
 }
 
 /* ++++++++ Links & Buttons ++++++++ */
+#logout {
+    color: white;
+}
+
 a {
     color: var(--green);
     text-decoration: none;
@@ -281,4 +285,3 @@ footer {
         gap: 2rem;
     }
 }
-

@@ -6,8 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.views.decorators.http import require_POST
 
-# Create your views here.
-
+# Pagina principal
 @login_required
 def index(request):
     lista = Lista.objects.all()
@@ -22,6 +21,7 @@ def index(request):
         form = ListaForm()
     return render(request, 'index.html', {'form': form, 'listas': lista, 'qtd_lista': qtd_lista })
 
+# A fazer
 @login_required
 def cadastro_categoria(request):
     if request.method == 'POST':
@@ -33,12 +33,14 @@ def cadastro_categoria(request):
         form = CategoriaForm()
         return redirect('index')
 
+# Excluir item da lista
 @login_required
 def excluir_item(request, id):
     item = Lista.objects.get(pk=id)
     item.delete()
     return redirect('index')
 
+# Cadastrar usuario //A fazer
 @login_required
 def user(request):
     return render(request, 'registro-usuario.html')
@@ -58,5 +60,6 @@ def registro_usuario(request):
         novoUsuario.save()
         return redirect('user')    
 
+# fazer login
 def login(request):
     return render(request, 'registration/login.html')   
