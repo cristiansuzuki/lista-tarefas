@@ -44,6 +44,7 @@
           <thead>
               <tr>
                   <th>Titulo</th>
+                  <th>Check</th>
                   <th>Conteudo</th>
                   <th>Categoria</th>
                   <th>Data termino</th>
@@ -53,7 +54,8 @@
           <tbody>
             {% for lista in listas %}
               <tr>
-                  <td class="verde">{{ lista.titulo }}</td>
+                  <td class="verde"> {{ lista.titulo }}</td>
+                  <td><input type="checkbox" class="checkbox" name="checkedbox" id="{{ lista.id }}" value="{{ todo.id }}" style=""></td>
                   <td class="description">{{ lista.conteudo }}</td>
                   <td class="vermelho">{{ lista.categoria }}</td>
                   <td class="date">{{ lista.data_termino }}</td>
