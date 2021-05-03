@@ -4,7 +4,7 @@
 {% block container %}
 
 <header>
-  <h2 class="lista">Lista</h2>
+  <h2 class="lista">Dev.Lista$</h2>
 </header>
 
 <main class="container">
@@ -12,27 +12,14 @@
   <section id="balance">
       <h2 class="sr-only">Balanço</h2>
 
-      <div class="card">
-          <h3>
-              <span>Entrada</span>
-              <img src="{% static 'assets/income.svg' %}" alt="Image de entradas">
-          </h3>
-          <p>R$ 5.000,00</p>
-      </div>
-      <div class="card">
-          <h3>
-              <span>Saidas</span>
-              <img src="{% static 'assets/expense.svg' %}" alt="Image de saidas">
-          </h3>
-          <p>R$ 2.000,00</p>
-      </div>
       <div class="card total">
           <h3>
-              <span>Total</span>
+              <span>Nome Usuario</span>
               <img src="{% static 'assets/total.svg' %}" alt="Image de total">
           </h3>
-          <p>R$ 3.000,00</p>
-      </div>   
+          <p>Você tem {{ qtd_lista }} tarefas a fazer!</p>
+      </div>
+
   </section>
 
   <section id="transaction">
@@ -44,7 +31,6 @@
           <thead>
               <tr>
                   <th>Titulo</th>
-                  <th>Check</th>
                   <th>Conteudo</th>
                   <th>Categoria</th>
                   <th>Data termino</th>
@@ -55,7 +41,6 @@
             {% for lista in listas %}
               <tr>
                   <td class="verde"> {{ lista.titulo }}</td>
-                  <td><input type="checkbox" class="checkbox" name="checkedbox" id="{{ lista.id }}" value="{{ todo.id }}" style=""></td>
                   <td class="description">{{ lista.conteudo }}</td>
                   <td class="vermelho">{{ lista.categoria }}</td>
                   <td class="date">{{ lista.data_termino }}</td>
@@ -97,6 +82,8 @@
                 <label class="sr-only" for="conteudo">Categoria</label>
                 {{ form.categoria }}
               </div>
+
+              <a href="#" class="button cat">+ Cadastrar categoria</a>
 
               <div class="input-group actions">
                   <a onclick="Modal.close()" class="button cancel">Cancelar</a>

@@ -76,6 +76,11 @@ button:hover {
     background: var(--light-green);
 }
 
+.button.cat {
+    display: inline-block;
+    margin-top: .9rem;
+}
+
 .button.new {
     display: inline-block;
     margin-bottom: .9rem;
@@ -177,10 +182,6 @@ table thead th {
     text-align: left;
 }
 
-
-
-
-
 table tbody td {
     background: white;
     padding: 1rem 2rem;
@@ -276,7 +277,7 @@ footer {
 
     #balance {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Equivale a 1fr 1fr 1fr */
+        grid-template-columns: repeat(1fr); /* Equivale a 1fr 1fr 1fr */
         gap: 2rem;
     }
 }
