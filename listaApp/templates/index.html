@@ -14,7 +14,7 @@
 
       <div class="card total">
           <h3>
-              <span>{{ user.get_username }}</span>
+              <span class="nome-usuario">{{ user.get_username }}</span>
               <img src="{% static 'assets/total.svg' %}" alt="Image de total">
           </h3>
           <h3>
@@ -28,7 +28,7 @@
   <section id="transaction">
       <h2 class="sr-only">Lista Tarefas</h2>
 
-      <a href="#" onclick="Modal.open()" class="button new">+ Novo item</a>
+      <a onclick="Modal.open()" class="button new">+ Novo item</a>
 
       <table id="data-table">
           <thead>

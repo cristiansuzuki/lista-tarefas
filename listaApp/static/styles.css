@@ -52,6 +52,11 @@ h2.lista {
 }
 
 /* ++++++++ Links & Buttons ++++++++ */
+
+.nome-usuario{
+    font-size: 30px;
+}
+
 #logout {
     color: white;
 }
@@ -88,6 +93,7 @@ button:hover {
 .button.new {
     display: inline-block;
     margin-bottom: .9rem;
+    cursor: pointer;
 }
 
 .button.cancel {
