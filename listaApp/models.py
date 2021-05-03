@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Tipo (ex: Trabalho, Estudo, etc...)
 class Categoria(models.Model):
@@ -19,6 +20,7 @@ class Lista(models.Model):
     data_criacao = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
     data_termino = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=False)
 
     def __str__(self):
         return self.titulo

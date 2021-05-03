@@ -150,3 +150,8 @@
   .credits a:hover {
     opacity: 1;
   }
+
+  .form-titulo{
+    display: flex;
+    justify-content: center;
+  }

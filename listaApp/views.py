@@ -9,12 +9,13 @@ from django.views.decorators.http import require_POST
 # Pagina principal
 @login_required
 def index(request):
-    lista = Lista.objects.all()
+    lista = Lista.objects.filter(usuario=request.user)
     qtd_lista = len(lista)
     lista = reversed(lista)
     if request.method == 'POST':
         form = ListaForm(request.POST)
         if form.is_valid():
+            lista.usuario = request.user
             form.save()
             return redirect('index')
     else:

@@ -52,6 +52,11 @@ h2.lista {
 }
 
 /* ++++++++ Links & Buttons ++++++++ */
+
+.nome-usuario{
+    font-size: 30px;
+}
+
 #logout {
     color: white;
 }
