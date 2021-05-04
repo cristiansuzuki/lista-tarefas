@@ -46,8 +46,7 @@ def cadastro_categoria(request):
         form = CategoriaForm()
         return redirect('index')
 
-# Cadastrar usuario //A fazer
-
+# Cadastrar usuario
 def user(request):
     return render(request, 'registro-usuario.html')
 

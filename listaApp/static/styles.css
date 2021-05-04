@@ -52,20 +52,6 @@ h2.lista {
 }
 
 /* ++++++++ Links & Buttons ++++++++ */
-
-.nome-logout{
-    font-size: 25px;
-    margin-top: 1rem;
-}
-
-.nome-usuario{
-    font-size: 30px;
-}
-
-#logout {
-    color: white;
-}
-
 a {
     color: var(--green);
     text-decoration: none;
@@ -138,6 +124,16 @@ header{
     color: white;
 }
 /* ++++++++ Cards ++++++++ */
+#nome-logout{
+    font-size: 25px;
+    margin-top: 1rem;
+    color: white;
+}
+
+.nome-usuario{
+    font-size: 30px;
+}
+
 .card {
     background: white;
     padding: 1.5rem 2rem;
@@ -163,6 +159,12 @@ header{
 .card.total {
     background: var(--green);
     color: white;
+}
+
+/* ++++++++ imagens ++++++++ */
+img {
+    border-radius: 50%;
+    max-width: 90px; max-height: 80px
 }
 
 /* ++++++++ table ++++++++ */
