@@ -15,7 +15,7 @@ def login(request):
 def index(request):
     if request.method == 'POST':
         form = ListaForm(request.POST)
-        if form.is_valid():
+        if form.is_valid(): 
             newform = form.save(commit=False)
             newform.usuario = request.user
             newform.save()
