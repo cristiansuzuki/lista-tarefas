@@ -10,16 +10,17 @@
 <main class="container">
   
   <section id="balance">
+
       <h2 class="sr-only">Balanço</h2>
 
       <div class="card total">
           <h3>
-              <span class="nome-usuario">{{ user.get_username }}</span>
-              <img src="{% static 'assets/total.svg' %}" alt="Image de total">
+              <span class="nome-usuario">Hello {{ user.get_username }}.</span>
+              <img src="{{ user.imagemuser.imagem.url }}" alt="Image de total">
           </h3>
           <h3>
             <p>Você tem {{ qtd_lista }} tarefas a fazer!</p>
-            <a class="nome-logout" href="accounts/logout" id="logout">Sair</a>
+            <a id="nome-logout" href="accounts/logout">Sair</a>
           </h3>
       </div>
 
