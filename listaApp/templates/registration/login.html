@@ -10,9 +10,22 @@
   <link rel="stylesheet" href="{% static 'login.css' %}">
   <link rel="icon" href="{% static 'assets/favicon.ico' %}" type="image/ico">
 
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+        <li {% if message.tags %} role="alert" class="alert alert-success"{% endif %} style="list-style: none;">{{message}}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}  
+
+
 </head>
 
   <form autocomplete='off' class='form' method="POST">{% csrf_token %}
+
+    {{ form.non_field_errors }}
+
+
     <div class='control'>
       <h1 class="form-titulo">
         Login
