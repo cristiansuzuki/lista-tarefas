@@ -164,7 +164,9 @@ header{
 /* ++++++++ imagens ++++++++ */
 img {
     border-radius: 50%;
-    max-width: 90px; max-height: 80px
+    max-width: 80px; 
+    max-height: 80px;
+    
 }
 
 /* ++++++++ table ++++++++ */

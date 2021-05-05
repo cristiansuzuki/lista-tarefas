@@ -55,11 +55,13 @@ def registro_usuario(request):
     try:
         usuario_aux = User.objects.get(email=request.POST['email'])
         if usuario_aux:
-            return render(request, 'caminho para o index', {'msg': 'Erro! Já existe um usuário com o mesmo e-mail'})
+            messages.error(request, 'Email ja existe no sistema')
+            return render(request, 'registro-usuario.html')
     except User.DoesNotExist:
         nome_usuario = request.POST['nome-usuario']
         email = request.POST['email']
         senha = request.POST['senha']
         novoUsuario = User.objects.create_user(username=nome_usuario, email=email, password=senha)
         novoUsuario.save()
+        messages.success(request, f'Usuário criado com sucesso')
         return redirect('user')
