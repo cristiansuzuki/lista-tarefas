@@ -1,100 +1,98 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block titulo %} Dev.ListaIten$ {% endblock %} 
-{% block container %}
+
+ {% extends 'base.html' %} 
+ {% load static %}
+  {% block titulo %} Dev.ListaIten$ {% endblock %}
+  
+  {% block container %}
 
 <header>
   <h2 class="lista">Dev.Lista$</h2>
 </header>
 
 <main class="container">
-  
   <section id="balance">
+    <h2 class="sr-only">Balanço</h2>
 
-      <h2 class="sr-only">Balanço</h2>
-
-      <div class="card total">
-          <h3>
-              <span class="nome-usuario">Ola {{ user.get_username }}</span>
-              <img src="{{ user.imagemuser.imagem.url }}" alt="Image de total">
-          </h3>
-          <h3>
-            <p>Você tem {{ qtd_lista }} tarefas a fazer</p>
-            <a id="nome-logout" href="accounts/logout">Sair</a>
-          </h3>
-      </div>
-
+    <div class="card total">
+      <h3>
+        <span class="nome-usuario">Ola {{ user.get_username }}</span>
+        <img src="{{ user.imagemuser.imagem.url }}" alt="Image de total" />
+      </h3>
+      <h3>
+        <p>Você tem {{ qtd_lista }} tarefas a fazer</p>
+        <a id="nome-logout" href="accounts/logout">Sair</a>
+      </h3>
+    </div>
   </section>
 
   <section id="transaction">
-      <h2 class="sr-only">Lista Tarefas</h2>
+    <h2 class="sr-only">Lista Tarefas</h2>
 
-      <a onclick="Modal.open()" class="button new">+ Novo item</a>
+    <a onclick="Modal.open()" class="button new">+ Novo item</a>
 
-      <table id="data-table">
-          <thead>
-              <tr>
-                  <th>Titulo</th>
-                  <th>Conteudo</th>
-                  <th>Categoria</th>
-                  <th>Data termino</th>
-                  <th></th>
-              </tr>
-          </thead>
-          <tbody>
-            {% for lista in listas %}
-              <tr>
-                  <td class="verde"> {{ lista.titulo }}</td>
-                  <td class="description">{{ lista.conteudo }}</td>
-                  <td class="vermelho">{{ lista.categoria }}</td>
-                  <td class="date">{{ lista.data_termino }}</td>
-                  <td>
-                      <a href="{% url 'excluir-item' lista.id %}">
-                        <img src="{% static 'assets/minus.svg' %}" alt="Remover item">
-                      </a>
-                  </td>
-              </tr>
-            {% endfor %}
-          </tbody>
-      </table>
+    <table id="data-table">
+      <thead>
+        <tr>
+          <th>Titulo</th>
+          <th>Conteudo</th>
+          <th>Categoria</th>
+          <th>Data termino</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for lista in listas %}
+        <tr>
+          <td class="verde">{{ lista.titulo }}</td>
+          <td class="description">{{ lista.conteudo }}</td>
+          <td class="vermelho">{{ lista.categoria }}</td>
+          <td class="date">{{ lista.data_termino }}</td>
+          <td>
+            <a href="{% url 'excluir-item' lista.id %}">
+              <img src="{% static 'assets/minus.svg' %}" alt="Remover item" />
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </section>
 </main>
 
 <div class="modal-overlay">
   <div class="modal">
-      <div id="form">
+    <div id="form">
+      <h2>Nova Tarefa</h2>
 
-          <h2>Nova Tarefa</h2>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="input-group">
+          <label class="sr-only" for="description">Titulo</label>
+          {{ form.titulo }}
+        </div>
 
-          <form method="POST"> {% csrf_token %}
-              <div class="input-group">
-                  <label class="sr-only" for="description">Titulo</label>
-                  {{ form.titulo }}
-              </div>
+        <div class="input-group">
+          <label class="sr-only" for="description">Conteudo</label>
+          {{ form.conteudo }}
+        </div>
 
-              <div class="input-group">
-                <label class="sr-only" for="description">Conteudo</label>
-                {{ form.conteudo }}
-              </div>
+        <div class="input-group">
+          <label class="sr-only" for="date">Data termino</label>
+          {{ form.data_termino }}
+        </div>
 
-              <div class="input-group">
-                  <label class="sr-only" for="date">Data termino</label>
-                  {{ form.data_termino }}
-              </div>
+        <div class="input-group">
+          <label class="sr-only" for="conteudo">Categoria</label>
+          {{ form.categoria }}
+        </div>
 
-              <div class="input-group">
-                <label class="sr-only" for="conteudo">Categoria</label>
-                {{ form.categoria }}
-              </div>
-
-              <div class="input-group actions">
-                  <a onclick="Modal.close()" class="button cancel">Cancelar</a>
-                  <button type="submit">Salvar</button>
-              </div>
-
-          </form>
-          <!-- <a href="#" class="button cat">+ Cadastrar categoria</a> -->
-      </div>
+        <div class="input-group actions">
+          <a onclick="Modal.close()" class="button cancel">Cancelar</a>
+          <button type="submit">Salvar</button>
+        </div>
+      </form>
+      <!-- <a href="#" class="button cat">+ Cadastrar categoria</a> -->
+    </div>
   </div>
 </div>
 
