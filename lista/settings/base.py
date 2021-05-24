@@ -13,13 +13,7 @@ import os
 from pathlib import Path
 from django.contrib.messages import constants as messages
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-MEDIA_ROOT = BASE_DIR+'/media/'
-MEDIA_URL = '/media/'
-MEDIA_DIRS = (
-    BASE_DIR+'/media/',
-)
 
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
