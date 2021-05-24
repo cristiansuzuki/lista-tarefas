@@ -13,6 +13,13 @@ import os
 from pathlib import Path
 from django.contrib.messages import constants as messages
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+MEDIA_ROOT = BASE_DIR+'/media/'
+MEDIA_URL = '/media/'
+MEDIA_DIRS = (
+    BASE_DIR+'/media/',
+)
 
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
@@ -37,7 +44,7 @@ SECRET_KEY = 'f%26)t2v@7und&fpju*+ll+x7+lg5xso7&e$1onc11+6u(l((^'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1, https://still-shore-53147.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'https://still-shore-53147.herokuapp.com']
 
 # Application definition
 
