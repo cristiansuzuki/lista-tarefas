@@ -2,6 +2,7 @@
 
 ## Heroku
 
+
 No momento, o projeto está rodando em um servidor do Heroku. Você pode acessar e testar através do link:
 <p>https://still-shore-53147.herokuapp.com/</p>
 
@@ -38,4 +39,4 @@ Isso irá rodar o projeto em um servidor local, caso uma janela do navegador nã
 
 ## Contribuições
 
-Pull Requests são bem-vindos
+Pull Requests são bem-vindos.
