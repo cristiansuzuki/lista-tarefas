@@ -34,7 +34,7 @@ def excluir_item(request, id):
     item.delete()
     return redirect('index')
 
-# Cadastrar categoria //A fazer
+# Cadastrar categoria
 @login_required
 def cadastro_categoria(request):
     if request.method == 'POST':
